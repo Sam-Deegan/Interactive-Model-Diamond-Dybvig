@@ -756,7 +756,7 @@ B_03_15_debounce_ms_int <- 250L
 ###### B_03_16: Version ########################################################
 # Note: Semantic version, shown in the footer; CHANGELOG.md has the history.
 
-B_03_16_version_chr <- "1.0.1"
+B_03_16_version_chr <- "1.0.2"
 
 ###### B_03_17: Source Repository ##############################################
 # Note: The GitHub repo, linked from the footer.
@@ -857,15 +857,6 @@ D_01_01_bundle_fn <- function(par, stage) {
     T_02_02_mark_y_fn(mark_at, mark_lab) +
     coord_cartesian(ylim = c(0, y_hi)) +
     labs(
-      title = if (stage >= 5 && par$policy != "none") {
-        "The Consumption Bundle Under the Policy"
-      } else if (stage >= 4) {
-        "The Consumption Bundle in Both Equilibria"
-      } else if (stage >= 2) {
-        "The Consumption Bundle: Autarky and the Bank"
-      } else {
-        "The Consumption Bundle Under Autarky"
-      },
       x = NULL, y = expression(bold("Consumption (" * c * ")")),
       caption = if (stage >= 5 && par$policy != "none") {
         paste0("Nothing about the contract has changed. The policy rules out ",
@@ -948,7 +939,6 @@ D_01_02_curve_fn <- function(par, stage, ref = NULL) {
     T_02_02_mark_y_fn(mark_y_at, mark_y_lab) +
     coord_cartesian(ylim = c(y_lo, y_hi)) +
     labs(
-      title = "Expected Utility of the Deposit Contract",
       x = expression(bold("Date-1 payment (" * c[1] * ")")),
       y = expression(bold("Expected utility (" * EU * ")")),
       caption = paste0(
@@ -1048,9 +1038,6 @@ D_02_01_best_fn <- function(par, cap = NULL, ref = NULL, ref_cap = NULL) {
              hjust = 1, vjust = -1.15,
              colour = T_01_01_palette_vec[["muted"]]) +
     labs(
-      # Folded at 30 so the title fits the narrow slide export
-      title = T_02_01b_fold_fn(
-        "Best Response of a Patient Depositor: Wait or Run", 30),
       x = expression(bold("Share withdrawing at date 1 (" * f * ")")),
       y = expression(bold("Payoff (" * c * ")")),
       caption = if (is.null(cap)) {
@@ -1093,7 +1080,6 @@ D_02_02_queue_fn <- function(par, cap = NULL) {
     T_02_02_mark_y_fn(par$c1, expression(c[1])) +
     coord_cartesian(ylim = c(0, par$c1 * 1.18)) +
     labs(
-      title = "Sequential Service: Payoff by Position in the Queue",
       x = expression(bold("Position in the queue (1 to " * N * ")")),
       y = expression(bold("Payoff (" * c[1] * ")")),
       caption = paste0(
@@ -1166,7 +1152,6 @@ D_03_01_policy_fn <- function(par) {
     T_02_02_mark_y_fn(par$c1, expression(c[1])) +
     coord_cartesian(ylim = c(0, y_hi)) +
     labs(
-      title = "Payoffs in the Run Equilibrium Under Each Policy",
       x = NULL, y = expression(bold("Payoff (" * c * ")")),
       caption = paste(
         "A run survives only where joining the queue pays more than waiting.",
