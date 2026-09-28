@@ -156,26 +156,27 @@ B_03_03_policies_vec <- c(
 
 B_03_04_policy_lst <- list(
   none = paste(
-    "<strong>Nothing stops the run.</strong> Waiting while everyone else",
-    "withdraws pays nothing, so joining the queue is a best response, and",
-    "the belief that others will run makes itself true."
+    "With no policy, waiting while everyone else withdraws pays nothing, so",
+    "joining the queue is a best response and the belief that others will",
+    "run makes itself true."
   ),
   suspend = paste(
-    "<strong>Suspension of convertibility.</strong> The bank announces in",
-    "advance that it will pay only the share it knows to be impatient and",
-    "then close its doors. A patient depositor who joins the queue gains",
-    "nothing, because the queue stops before it reaches them, so waiting",
-    "dominates and the run equilibrium disappears. The catch: if the share",
-    "of impatient depositors were genuinely uncertain, suspension would turn",
-    "away people who really needed their money."
+    "Under suspension of convertibility the bank announces in advance that",
+    "it will pay only the share it knows to be impatient and then close its",
+    "doors. The queue stops before it reaches a patient depositor, so",
+    "waiting dominates and the run equilibrium disappears. If the impatient",
+    "share were genuinely uncertain, suspension would turn away people who",
+    "needed their money."
   ),
   insure = paste(
-    "<strong>Deposit insurance.</strong> The government guarantees the",
-    "date-2 payment. Waiting is then safe whatever anyone else does, so",
-    "nobody has a reason to run and the guarantee never has to be paid. It",
-    "removes the run without turning anyone away, which is why it is the",
-    "policy that was actually adopted. The catch is moral hazard: a bank",
-    "whose depositors cannot run is a bank that can take more risk."
+    "Deposit insurance has the government guarantee the date-2 payment.",
+    "Waiting is then safe whatever anyone else does, nobody runs, and the",
+    "guarantee is never paid. It turns nobody away, which is why it was the",
+    "policy adopted, at the cost of moral hazard: a bank whose depositors",
+    "cannot run can take more risk. A lender of last resort does the same",
+    "job from the other side, lending against the investment so it is never",
+    "liquidated and L stops mattering. Set the liquidation value to 1 to see",
+    "the model with that already in place."
   )
 )
 
@@ -756,7 +757,7 @@ B_03_15_debounce_ms_int <- 250L
 ###### B_03_16: Version ########################################################
 # Note: Semantic version, shown in the footer; CHANGELOG.md has the history.
 
-B_03_16_version_chr <- "1.0.6"
+B_03_16_version_chr <- "1.0.7"
 
 ###### B_03_17: Source Repository ##############################################
 # Note: The GitHub repo, linked from the footer.
@@ -1599,14 +1600,7 @@ F_01_01_app_server_fn <- function(input, output, session) {
       tags$div(class = "nar-head", "The Three Fixes"),
       lapply(names(B_03_04_policy_lst), function(k) {
         tags$p(HTML(B_03_04_policy_lst[[k]]))
-      }),
-      tags$p(HTML(paste(
-        "<strong>A lender of last resort</strong> does the same job from the",
-        "other side: the central bank lends against the investment so it",
-        "never has to be liquidated, and L stops mattering. Raise the",
-        "liquidation value to 1 to see the version of the model where that",
-        "has already worked."
-      )))
+      })
     )
   })
 }
