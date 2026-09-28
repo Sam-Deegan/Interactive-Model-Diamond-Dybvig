@@ -134,11 +134,11 @@ B_03_01_defaults_lst <- list(
 #   supplies the word "Stage", so the names carry only the number and topic.
 
 B_03_02_stages_vec <- c(
-  "1  Autarky: No Bank"        = "1",
-  "2  The Deposit Contract"    = "2",
-  "3  The Optimal Contract"    = "3",
-  "4  The Run Equilibrium"     = "4",
-  "5  Policies That Stop Runs" = "5"
+  "Stage 1: Autarky, No Bank"     = "1",
+  "Stage 2: The Deposit Contract" = "2",
+  "Stage 3: The Optimal Contract" = "3",
+  "Stage 4: The Run Equilibrium"  = "4",
+  "Stage 5: Policies That Stop Runs" = "5"
 )
 
 ###### B_03_03: Policy Choices #################################################
@@ -756,7 +756,7 @@ B_03_15_debounce_ms_int <- 250L
 ###### B_03_16: Version ########################################################
 # Note: Semantic version, shown in the footer; CHANGELOG.md has the history.
 
-B_03_16_version_chr <- "1.0.0"
+B_03_16_version_chr <- "1.0.1"
 
 ###### B_03_17: Source Repository ##############################################
 # Note: The GitHub repo, linked from the footer.
