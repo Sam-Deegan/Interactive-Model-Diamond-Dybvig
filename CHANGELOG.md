@@ -1,0 +1,30 @@
+# Changelog
+
+All notable changes to this app. Versions follow [Semantic Versioning](https://semver.org/):
+MAJOR for a change to the model or its notation, MINOR for new features
+(a stage, a worked example, a figure), PATCH for fixes and wording.
+Each release is tagged in git as `vX.Y.Z` and shown in the app footer.
+
+## [1.0.0] - 2026-09-28
+
+First public release as a standalone repository.
+
+### Model
+- Diamond and Dybvig (1983) with three dates, an illiquid technology, a
+  known share of impatient types and CRRA utility, following Romer (2019)
+  ch. 10 and the ECON42550 Part 2 sample paper.
+- Closed-form autarky, deposit contract, optimal contract and run threshold;
+  best responses, the sequential-service queue and the two equilibria over
+  a grid of the share withdrawing.
+- Suspension of convertibility and deposit insurance as a cap on
+  withdrawals at the impatient share.
+
+### App
+- Five stages (1 to 5) that add one layer of the model at a time.
+- Nine worked examples, each with a story and a "what to try" prompt.
+- Equations, Notation and In Words tabs that track the model at each stage.
+- Readout tiles for expected utility, the contract, the optimum, the run
+  threshold and whether a run is an equilibrium.
+- Ghost curves showing the loaded worked example alongside the live sliders
+  on the expected-utility and best-response figures.
+- Warnings when the calibration admits no sensible contract.
